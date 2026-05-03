@@ -1,0 +1,8 @@
+{
+  "r": 8,
+  "alpha": 64,
+  "dropout": 0.0,
+  "val_bleu": 0.554189561643269,
+  "training_time_hours": 0.7594656748241848,
+  "trainable_params_millions": 2.359296
+}
