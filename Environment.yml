@@ -1,0 +1,48 @@
+name: mt26
+channels:
+  - defaults
+
+dependencies:
+  - python=3.10.20
+
+  - pip:
+    # ── Core ML framework ──────────────────────────────────────────────────
+    - torch==2.11.0
+    - accelerate==1.13.0          # HuggingFace Trainer backend
+
+    # ── HuggingFace stack ──────────────────────────────────────────────────
+    - transformers==4.57.6        # NLLB-200, Seq2SeqTrainer
+    - peft==0.19.1                # LoRA — LoraConfig, get_peft_model
+    - datasets==4.8.4             # Dataset.from_list(), map()
+    - tokenizers==0.22.2          # fast tokenizer used by transformers
+    - huggingface-hub==0.36.2     # model/cache downloads
+    - safetensors==0.7.0          # checkpoint serialisation
+    - sentencepiece==0.2.1        # NLLB sentencepiece tokenizer
+
+    # ── Evaluation metrics ─────────────────────────────────────────────────
+    - evaluate==0.4.6             # evaluate.load("bleu"), evaluate.load("chrf")
+    - sacrebleu==2.6.0            # evaluate's BLEU backend
+    - unbabel-comet==2.2.7        # COMET — used in exp5 final eval only
+
+    # ── Hyperparameter optimisation ────────────────────────────────────────
+    - optuna==4.8.0               # exp3 / exp4 Bayesian search + pruning
+
+    # ── Data & numerics ────────────────────────────────────────────────────
+    - numpy==1.26.4
+    - pandas==2.2.0
+    - pyarrow==23.0.1             # datasets arrow backend
+    - scikit-learn==1.7.2         # fANOVA / analysis scripts
+
+    # ── Plotting (analysis scripts) ────────────────────────────────────────
+    - matplotlib==3.10.8
+    - seaborn==0.13.2
+
+    # ── Utilities ──────────────────────────────────────────────────────────
+    - pyyaml==6.0.3               # config.yaml loading
+    - tqdm==4.67.3                # progress bars
+    - requests==2.33.1
+    - filelock==3.25.2
+    - packaging==26.0
+
+    # ── Testing ────────────────────────────────────────────────────────────
+    - pytest>=7.0.0
